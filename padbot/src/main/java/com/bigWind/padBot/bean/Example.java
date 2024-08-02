@@ -1,3 +1,4 @@
+/*
 package com.bigWind.padBot.bean;
 
 import java.util.Arrays;
@@ -54,3 +55,4 @@ public class Example {
 
     }
 }
+*/
