@@ -2,6 +2,7 @@ package com.bigWind.padBot.bean;
 /**
  * Created by yy on 2024/7/30.
  * 目的是模拟派宝发送的请求，相对简单。
+ * 因为内部类的调用方法较为奇怪，因此这里将内部类转换为外部类
  */
 public class Request {
     private String sessionId;
@@ -80,16 +81,3 @@ public class Request {
     }
 }
 
-class Message {
-    private String prompt;
-
-    // Getters and Setters
-
-    public String getPrompt() {
-        return prompt;
-    }
-
-    public void setPrompt(String prompt) {
-        this.prompt = prompt;//提示词，后期可能需要会话管理
-    }
-}
