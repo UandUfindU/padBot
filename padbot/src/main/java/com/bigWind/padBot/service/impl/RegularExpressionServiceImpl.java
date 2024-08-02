@@ -43,7 +43,7 @@ public class RegularExpressionServiceImpl implements RegularExpressionService {
         }
         // 如果列表不为空，则将最后一个元素的isEnd属性设置为true
         if (!events.isEmpty()) {
-            events.get(events.size() - 1).setEnd(true);
+            events.get(events.size() - 1).setIsEnd(true);
         }
         return events;
 
