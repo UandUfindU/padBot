@@ -5,6 +5,7 @@ import com.bigWind.padBot.bean.response.Data;
 public class Response {
     public int status;
     public String sessionId;
+
     public Data data;
 
     //Getter and Setter

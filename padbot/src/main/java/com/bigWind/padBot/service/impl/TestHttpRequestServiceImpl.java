@@ -1,5 +1,10 @@
 package com.bigWind.padBot.service.impl;
 
+/*2024-8-1
+:jl
+一个最简单的向模型发送请求的测试用例
+基于"curl -X POST "http://192.168.1.122:8081/rag_query"-H "content-Type: application/json" -d '{"question": "请问你是谁?"}'”将传入的string替换到请求体中并发送请求，获得模型返回结果*/
+
 import com.bigWind.padBot.service.HttpRequestService;
 import com.bigWind.padBot.service.TestHttpRequestService;
 import org.springframework.beans.factory.annotation.Autowired;

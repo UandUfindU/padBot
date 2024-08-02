@@ -12,6 +12,8 @@ public class SpeechData extends EventData{
         this.speed=6;
     }
 
+
+
     @Override
     public String toString(){
         return "{\"content\": \"" + content + "\", \"voice\": \"" + voice + "\", \"speed\": " + speed + "}";
@@ -42,3 +44,4 @@ public class SpeechData extends EventData{
         this.speed = speed;
     }
 }
+

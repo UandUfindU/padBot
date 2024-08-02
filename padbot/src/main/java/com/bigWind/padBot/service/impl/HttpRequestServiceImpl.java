@@ -1,5 +1,9 @@
 package com.bigWind.padBot.service.impl;
 
+/*2024-8-1
+* jl
+* 向模型端发送请求，为保证可扩展性，参数为url与请求体中需要代换的question字符串发送请求后接收模型回复，并输出字符串*/
+
 import com.bigWind.padBot.service.HttpRequestService;
 import org.springframework.stereotype.Service;
 import java.io.BufferedReader;

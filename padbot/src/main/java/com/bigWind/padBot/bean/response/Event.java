@@ -2,11 +2,19 @@ package com.bigWind.padBot.bean.response;
 
 public class Event {
     public int eventId;
+    public int preEventId;//新加字段，用于记录上一个事件的id
     public String eventType;
     public EventData data;
     public boolean isEnd;
     public Event(int eventId,String eventType,EventData data,boolean isEnd){
         this.eventId=eventId;
+        this.eventType=eventType;
+        this.data=data;
+        this.isEnd=isEnd;
+    }
+    public Event(int eventId,int preEventId,String eventType,EventData data,boolean isEnd){
+        this.eventId=eventId;
+        this.preEventId=preEventId;
         this.eventType=eventType;
         this.data=data;
         this.isEnd=isEnd;
@@ -48,5 +56,13 @@ public class Event {
 
     public void setEnd(boolean  end) {
         isEnd = end;
+    }
+
+    public int getPreEventId() {
+        return preEventId;
+    }
+
+    public void setPreEventId(int preEventId) {
+        this.preEventId = preEventId;
     }
 }
