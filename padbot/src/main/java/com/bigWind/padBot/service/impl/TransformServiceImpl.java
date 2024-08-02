@@ -34,7 +34,7 @@ public class TransformServiceImpl implements TransformService {
     @Override
     public String processRequest(Request request){
         //0-eventId初始化,原本方法不变的前提下，语音默认为第一个event，所以计数从第二个开始,默认情况下只有一次event
-        boolean isEnd =true;
+        boolean isEnd = true;
 
         //1-提取prompt
         String prompt = messageService.extractPrompt(request);
