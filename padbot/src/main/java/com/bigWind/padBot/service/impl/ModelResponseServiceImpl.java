@@ -97,4 +97,24 @@ public class ModelResponseServiceImpl implements ModelResponseService {
         return response;
     }
 
+    @Override
+    public Response ResponseBuild(Response response,String eventType, String input,String input2,boolean isEnd) {
+        Data data = new Data();
+        List<Event> events = response.data.events;
+        EventDataFactory factory=new EventDataFactory();
+        EventData eventData = factory.createEventData(eventType,input,input2);
+        int eventId=response.data.events.size()+1;
+        Event event;
+        if (eventId==1){
+            event = new Event(eventId,eventType,eventData,isEnd);
+        }
+        else{
+            event = new Event(eventId,eventId-1,eventType,eventData,isEnd);
+        }
+        //重构逻辑，仅为1时事件直接添入，没有前置事件；其他情况置入前置事件序号
+        events.add(event);
+        data.events = events;
+        response.data = data;
+        return response;
+    }
 }

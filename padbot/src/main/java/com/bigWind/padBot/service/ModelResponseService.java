@@ -13,4 +13,6 @@ public interface ModelResponseService {
 
     //为了方便遍历，需要一个对已有response进行事件添加的方法
     Response ResponseBuild(Response response, String eventType, String input, boolean isEnd);
+
+    Response ResponseBuild(Response response, String eventType, String input, String input2, boolean isEnd);
 }

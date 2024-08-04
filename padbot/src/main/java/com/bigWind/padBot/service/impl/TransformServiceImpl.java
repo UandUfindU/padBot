@@ -60,6 +60,10 @@ public class TransformServiceImpl implements TransformService {
         }else{
             response = modelResponseService.ResponseBuild(request.getSessionId(), 1,"speech", externalResponse, false);
             for (TempEvent event : events) {
+                if (event.getEventType() == "navigation") {
+                    response = modelResponseService.ResponseBuild(response, event.getEventType(),event.getInput(),event.getInput2(),event.GetIsEnd());
+                    continue;
+                }
                 response = modelResponseService.ResponseBuild(response, event.getEventType(),event.getInput(),event.GetIsEnd());
             }
         }

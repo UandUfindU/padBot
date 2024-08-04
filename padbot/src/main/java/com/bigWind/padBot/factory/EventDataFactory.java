@@ -3,10 +3,7 @@
 * 工厂模式，根据输入的eventType和输入的字符串形成对应的参数*/
 package com.bigWind.padBot.factory;
 
-import com.bigWind.padBot.bean.response.EventData;
-import com.bigWind.padBot.bean.response.MotionData;
-import com.bigWind.padBot.bean.response.SpeechData;
-import com.bigWind.padBot.bean.response.WebPageData;
+import com.bigWind.padBot.bean.response.*;
 
 import static java.lang.String.valueOf;
 
@@ -20,6 +17,24 @@ public class EventDataFactory {
             case "motion":
                 double distance = Float.parseFloat(input);
                 return new MotionData(distance);
+            case "navigation":
+                return new NavigationData(input);
+            default:
+                throw new IllegalArgumentException("Unsupported eventType: " + eventType);
+        }
+    }
+
+    public EventData createEventData(String eventType, String input1, String input2) {
+        switch (eventType) {
+            case "speech":
+                return new SpeechData(input1) ;
+            case "webpage":
+                return new WebPageData(input1) ;
+            case "motion":
+                double distance = Float.parseFloat(input1);
+                return new MotionData(distance);
+            case "navigation":
+                return new NavigationData(input1,input2);
             default:
                 throw new IllegalArgumentException("Unsupported eventType: " + eventType);
         }
