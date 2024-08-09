@@ -10,4 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TestHttpRequestService {
     public String sendRequest(String question);
+
+    String sendMeetingRequest(String question);
 }

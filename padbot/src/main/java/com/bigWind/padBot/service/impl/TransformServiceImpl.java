@@ -42,16 +42,14 @@ public class TransformServiceImpl implements TransformService {
             return "{\"error\": \"Invalid request\"}";
         }
 
-        //1.5-首先对prompt进行正则表达式匹配，匹配几次关键词就生成几个除了第一个event的event，在增强循环中得到一个eventList,并用“\n system：\n”的形式拼装在prompt后，告诉模型任务已经执行
-        List<TempEvent> events = regularExpressionService.matchPrompt(prompt);
-
-        //告诉模型哪些任务已经被执行
-        for (TempEvent event : events) {
-            prompt = prompt + event.toString();
-        }
+        //1.5-首先对prompt进行正则表达式匹配，匹配几次关键词就拼接几个结构化命令给模型
+        prompt = regularExpressionService.systemCommandPrompt(prompt);
 
         //2-利用prompt拼装请求体，发送请求并接收模型返回
         String externalResponse = testHttpRequestService.sendRequest(prompt);
+
+        //2.5-对模型返回结果进行正则匹配，提取结构化数据
+        List<TempEvent> events = regularExpressionService.matchPrompt(externalResponse);
 
         Response response;
         //3-处理模型返回-得到语音

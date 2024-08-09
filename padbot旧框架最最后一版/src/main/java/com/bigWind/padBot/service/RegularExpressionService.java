@@ -7,5 +7,5 @@ import java.util.List;
 public interface RegularExpressionService {
     List<TempEvent> matchPrompt(String input);
 
-    String systemCommandPrompt(String input);
+    boolean isMeeting(String input);
 }
